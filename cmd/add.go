@@ -6,6 +6,7 @@ package cmd
 
 import (
 	"fmt"
+	"tri/todo"
 
 	"github.com/spf13/cobra"
 )
@@ -19,7 +20,11 @@ var addCmd = &cobra.Command{
 }
 
 func addRun(cmd *cobra.Command, args []string) {
-	fmt.Println("add called")
+	items := []todo.Item{}
+	for _, x := range args {
+		items = append(items, todo.Item{Text: x})
+	}
+	fmt.Printf("%#v\n",items)
 }
 
 func init() {
